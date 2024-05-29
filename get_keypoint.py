@@ -25,6 +25,8 @@ def _get_keypoint(image_path, label_path):
     mask = cv2.inRange(hsv, lower_blue, upper_blue)
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     
+    ## we need to change the lower_blue and upper_blue to maintain the size of keypoints being 3
+
     keypoints = []
     for cnt in contours:
         M = cv2.moments(cnt)
@@ -32,13 +34,15 @@ def _get_keypoint(image_path, label_path):
         cy = int(M['m01'] / M['m00'])
         keypoints.append((cx, cy))
     
+    _tag_keypoint(image_path, keypoints)
+
     data = _load_jsonl(label_path)
-    
+
 
     
     return 0
 
-def _tag_keypoint(image_path, keypoint):
+def _tag_keypoint(image_path, keypoints):
     return 0
 
 def main(args):

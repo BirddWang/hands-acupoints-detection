@@ -74,6 +74,7 @@ def _crop_img(img_file, label_file, idx):
 
 def main(args):
     for idx in range(args.st_idx, args.ed_idx):
+        label_file = f"datasets/hand/labels/{idx}.jsonl"
         if args.frame:
             _video_to_img(args.video_dir, args.img_dir, idx)
         # dir = datasets/hand/imgs/{idx}
@@ -81,7 +82,6 @@ def main(args):
         for img_file in os.listdir(img_dir):
             img_file = f"{img_dir}/{img_file}"
             _get_hands_bbox(img_file, idx)
-            label_file = f"datasets/hand/labels/{idx}.jsonl"
             if args.crop:
                 _crop_img(img_file, label_file, idx)
 

@@ -82,7 +82,8 @@ def main(args):
             img_file = f"{img_dir}/{img_file}"
             _get_hands_bbox(img_file, idx)
             label_file = f"datasets/hand/labels/{idx}.jsonl"
-            _crop_img(img_file, label_file, idx)
+            if args.crop:
+                _crop_img(img_file, label_file, idx)
 
     return 0
 
@@ -95,5 +96,6 @@ if __name__ == '__main__':
     argparse.add_argument('--img_dir', type=str, default='datasets/hand/imgs', help='output image directory')
     argparse.add_argument('--crop_output', type=str, default='datasets/hand/cropped_imgs', help='output cropped image directory')
     argparse.add_argument('--frame', type=bool, default=False, help='if True, get frame from video.')
+    argparse.add_argument('--crop', type=bool, default=False, help='if True, crop image.')
     args = argparse.parse_args()
     main(args)

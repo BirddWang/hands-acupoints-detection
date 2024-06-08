@@ -1,6 +1,6 @@
-train: /train/images
-val: /val/images
-test: /test/images
+train: Train
+val: Val
+kpt_shape: [1, 2]
 nc: 6
 names: 
   0: TaiYuan
@@ -9,4 +9,3 @@ names:
   3: YanGu
   4: YangChi
   5: YangShi
-kpt_shape: [6, 3]

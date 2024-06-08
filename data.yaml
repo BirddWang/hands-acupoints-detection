@@ -1,0 +1,12 @@
+train: /train/images
+val: /val/images
+test: /test/images
+nc: 6
+names: 
+  0: TaiYuan
+  1: DaLing
+  2: ShenMen
+  3: YanGu
+  4: YangChi
+  5: YangShi
+kpt_shape: [6, 3]

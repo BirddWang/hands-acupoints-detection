@@ -1,8 +1,8 @@
-train: Train
-val: Val
+train: Train/images
+val: Val/images
 kpt_shape: [1, 2]
 nc: 6
-names: 
+names:
   0: TaiYuan
   1: DaLing
   2: ShenMen
